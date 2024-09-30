@@ -1,8 +1,8 @@
 locals {
-  instance_size  = "M0"
+  instance_size            = "M0"
   cloud_provider_free_tier = "TENANT"
-  cloud_provider = "AWS"
-  region         = "US_EAST_1"
+  cloud_provider           = "AWS"
+  region                   = "US_EAST_1"
 }
 
 resource "mongodbatlas_advanced_cluster" "cluster" {
@@ -13,10 +13,10 @@ resource "mongodbatlas_advanced_cluster" "cluster" {
 
   replication_specs {
     region_configs {
-      priority      = 7
-      provider_name = local.cloud_provider_free_tier // To enable M0 [Free Tier]
+      priority              = 7
+      provider_name         = local.cloud_provider_free_tier // To enable M0 [Free Tier]
       backing_provider_name = local.cloud_provider
-      region_name   = local.region
+      region_name           = local.region
       electable_specs {
         instance_size = local.instance_size
         node_count    = 3
