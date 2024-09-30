@@ -1,13 +1,13 @@
 variable "mongodbatlas_public_key" {
-  default = "werbnrfx"
+  default = "jporrtth"
 }
 
 variable "mongodbatlas_private_key" {
-  default = "1b58df09-20aa-45f7-8c5f-93a16f3fa1e4"
+  default = "2b84d288-4e58-43cd-955a-cc1297ed9dc2"
 }
 
 variable "project_name" {
-  default = "snack-hub-project"
+  default = "project-snack-hub"
 }
 
 variable "database_name" {
