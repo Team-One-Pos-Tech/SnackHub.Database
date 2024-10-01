@@ -1,9 +1,27 @@
 variable "mongodbatlas_public_key" {
-  default = "jporrtth"
+  description = "MongoDb Atlas Project Public Key"
+  type = string
 }
 
 variable "mongodbatlas_private_key" {
-  default = "2b84d288-4e58-43cd-955a-cc1297ed9dc2"
+  description = "MongoDb Atlas Project Private Key"
+  type = string
+}
+
+variable "dbuser" {
+  description = "USername that will be set when creating the collection admin user"
+  type = string
+}
+
+variable "dbuser_password" {
+  description = "Password that will be set when creating the collection admin user"
+  type = string
+}
+
+
+variable "org_id" {
+  description = "MongoDb Atlas organization Id"
+  type = string
 }
 
 variable "project_name" {
@@ -12,19 +30,6 @@ variable "project_name" {
 
 variable "database_name" {
   default = "snack-hub-db"
-}
-
-variable "dbuser" {
-  default = "dbadmin"
-}
-
-variable "dbuser_password" {
-  default = "Sup3rP4ss!"
-}
-
-
-variable "org_id" {
-  default = "66faf38bf5b008481394ef02"
 }
 
 variable "cluster_name" {
