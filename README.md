@@ -14,12 +14,27 @@ The Terraform code in this repository uses the `mongodbatlas` provider to intera
 Here's a high-level overview of the deployment process:
 
 ```mermaid
-graph LR;
-    A[Mongodbatlas Provider] --> B[Configure Cluster];
-    C[Terraform Plan] --> D[Create Cluster];
-    E[Database Setup] --> F[Create Database & Collections];
-    G[Security Setup] --> H[Create Users & Roles];
+sequenceDiagram
+    participant Terraform as "Terraform"
+    participant MongoAtlas as "MongoDB Atlas"
+    note right of Terraform: mongodbatlas provider
+
+    MongoAtlas->>Terraform: Provide credentials and project ID
+    Terraform->>Terraform: Initialize terraform with mongodbatlas provider
+    Terraform->>MongoAtlas: Create cluster API call
+    note right of MongoAtlas: Provision new cluster
+    MongoAtlas-->>Terraform: Cluster creation result
+
+    Terraform->>Terraform: Create databases
+    Terraform->>MongoAtlas: Create database API calls
+    note right of MongoAtlas: Create new databases
+
+    Terraform->>Terraform: Set up user access controls
+    Terraform->>MongoAtlas: Create user and role API calls
+    note right of MongoAtlas: Create new users and roles
+
 ```
+
 
 ## How to use it
 
